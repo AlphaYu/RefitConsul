@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Alpha.Yu</Authors>
+    <Product>Adnc.RefitConsul</Product>
+    <Version>0.0.1</Version>
+    <Description>Refit and Consul</Description>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>RefitConsul</PackageId>
+    <AssemblyName>RefitConsul</AssemblyName>
+    <RootNamespace>RefitConsul</RootNamespace>
+    <NeutralLanguage />
+    <Copyright>Alpha.Yu</Copyright>
+    <PackageProjectUrl>https://github.com/AlphaYu/RefitConsul</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AlphaYu/RefitConsul</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Consul" Version="1.6.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.6" />
+  </ItemGroup>
+</Project>
