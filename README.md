@@ -36,25 +36,8 @@ consul服务发现实现了随机轮询策略与缓存。
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
-            //重试策略
-            var retryPolicy = Policy.Handle<HttpRequestException>()
-                                    .OrResult<HttpResponseMessage>(response => response.StatusCode== System.Net.HttpStatusCode.BadGateway)
-                                    .WaitAndRetryAsync(new[]
-                                    {
-                                        TimeSpan.FromSeconds(1),
-                                        TimeSpan.FromSeconds(5),
-                                        TimeSpan.FromSeconds(10)
-                                    });
-            //超时策略
-            var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(5);
-            //隔离策略
-            var bulkheadPolicy = Policy.BulkheadAsync<HttpResponseMessage>(10, 100);
-            //回退策略
-            //断路策略
-            var circuitBreakerPolicy = Policy.Handle<Exception>()
-                           .CircuitBreakerAsync(2, TimeSpan.FromMinutes(1));
-            //注册RefitClient
+            
+	    //注册RefitClient
             //用SystemTextJsonContentSerializer替换默认的NewtonsoftJsonContentSerializer序列化组件
             //如果调用接口是使用NewtonsoftJson序列化则不需要替换
             services.AddRefitClient<IAuthApi>(new RefitSettings(new SystemTextJsonContentSerializer()))
