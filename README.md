@@ -1,5 +1,6 @@
 # RefitConsul
 RefitConsul扩展了Refit组件的Consul服务发现功能，能更加便捷调用Restful服务。
+consul服务发现实现了随机轮询策略与缓存。
 
 # 如何使用
 1、定义服务接口
