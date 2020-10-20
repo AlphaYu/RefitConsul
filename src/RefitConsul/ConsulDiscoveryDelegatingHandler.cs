@@ -32,10 +32,8 @@ namespace RefitConsul
             try
             {
                 var auth = request.Headers.Authorization;
-                if (auth != null)
+                if (auth != null && _token != null)
                 {
-                    if (_token == null) throw new ArgumentNullException(nameof(_token));
-
                     var tokenTxt = await _token();
                     request.Headers.Authorization = new AuthenticationHeaderValue(auth.Scheme, tokenTxt);
                 }

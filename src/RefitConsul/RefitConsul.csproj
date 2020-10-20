@@ -3,9 +3,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Alpha.Yu</Authors>
     <Product>Adnc.RefitConsul</Product>
-    <Version>0.0.1</Version>
-    <Description>Refit and Consul</Description>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>0.0.2</Version>
+    <Description>Refit and Consul
+RefitConsul扩展了Refit组件的Consul服务发现功能，能更加便捷调用Restful服务。 consul服务发现实现了随机轮询策略与缓存。</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>RefitConsul</PackageId>
     <AssemblyName>RefitConsul</AssemblyName>
     <RootNamespace>RefitConsul</RootNamespace>
@@ -13,11 +14,28 @@
     <Copyright>Alpha.Yu</Copyright>
     <PackageProjectUrl>https://github.com/AlphaYu/RefitConsul</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AlphaYu/RefitConsul</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReleaseNotes>RefitConsul扩展了Refit组件的Consul服务发现功能，能更加便捷调用Restful服务。 consul服务发现实现了随机轮询策略与缓存。</PackageReleaseNotes>
+    <PackageTags>Adnc.RefitConsul</PackageTags>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>F:\github\RefitConsul\src\RefitConsul\RefitConsul.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>F:\github\RefitConsul\src\RefitConsul\RefitConsul.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Consul" Version="1.6.1.1" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.6" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 </Project>
